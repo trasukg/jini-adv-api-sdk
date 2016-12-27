@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements.  See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership. The ASF licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License. You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+
+--><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.apache.river.advapi</groupId>
+    <artifactId>jini-adv-api-sdk</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>jini-adv-api-sdk</name>
+    <modules>
+        <module>adv-api-hello-impl</module>
+        <module>jini-annotations</module>
+        <module>adv-api-bootstrap</module>
+        <module>adv-api-hello-home</module>
+    </modules>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <jsk.version>2.2.2</jsk.version>
+        <geronimo_el.version>1.0.2</geronimo_el.version>
+        <geronimo_annotation.version>1.0</geronimo_annotation.version>
+        <geronimo_jpa.version>1.1</geronimo_jpa.version>
+        <geronimo_jta.version>1.1.1</geronimo_jta.version>
+        <geronimo_jsp.version>1.0.1</geronimo_jsp.version>
+        <geronimo_cdi.version>1.0</geronimo_cdi.version>
+        <geronimo_atinject.version>1.0</geronimo_atinject.version>
+        <geronimo_interceptor.version>1.0</geronimo_interceptor.version>
+        <geronimo_validation.version>1.1</geronimo_validation.version>
+        <openwebbeans.version>1.7.1-SNAPSHOT</openwebbeans.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>net.jini</groupId>
+                <artifactId>jsk-platform</artifactId>
+                <version>${jsk.version}</version>
+            </dependency>
+            
+            <dependency>
+                <groupId>net.jini</groupId>
+                <artifactId>jsk-lib</artifactId>
+                <version>${jsk.version}</version>
+            </dependency>     
+            <dependency>
+                <groupId>net.jini</groupId>
+                <artifactId>jsk-dl</artifactId>
+                <version>${jsk.version}</version>
+            </dependency>     
+            <dependency>
+                <groupId>net.jini</groupId>
+                <artifactId>jsk-resources</artifactId>
+                <version>${jsk.version}</version>
+            </dependency>     
+            <dependency>
+                <groupId>net.jini</groupId>
+                <artifactId>jsk-policy</artifactId>
+                <version>${jsk.version}</version>
+            </dependency>     
+            <dependency>
+                <groupId>org.apache.river</groupId>
+                <artifactId>reggie</artifactId>
+                <version>${jsk.version}</version>
+            </dependency>     
+            <dependency>
+                <groupId>org.apache.river</groupId>
+                <artifactId>reggie-dl</artifactId>
+                <version>${jsk.version}</version>
+            </dependency>  
+        
+            <dependency>
+                <groupId>org.apache.river.tools.rt</groupId>
+                <artifactId>start</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+            
+            <dependency>
+                <groupId>org.apache.river.examples</groupId>
+                <artifactId>hello-api</artifactId>
+                <version>1.0</version>
+            </dependency>
+                
+ 
+            <dependency>
+                <groupId>org.apache.geronimo.specs</groupId>
+                <artifactId>geronimo-jaxws_2.1_spec</artifactId>
+                <version>${geronimo_jaxws.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.geronimo.specs</groupId>
+                <artifactId>geronimo-servlet_3.0_spec</artifactId>
+                <version>${geronimo_servlet.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>dom4j</groupId>
+                <artifactId>dom4j</artifactId>
+                <version>${dom4j.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.geronimo.specs</groupId>
+                <artifactId>geronimo-el_2.2_spec</artifactId>
+                <version>${geronimo_el.version}</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>4.8.2</version>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.geronimo.specs</groupId>
+                <artifactId>geronimo-annotation_1.2_spec</artifactId>
+                <version>${geronimo_annotation.version}</version>
+            </dependency>
+
+ 
+            <dependency>
+                <groupId>org.apache.geronimo.specs</groupId>
+                <artifactId>geronimo-jcdi_1.1_spec</artifactId>
+                <version>${geronimo_cdi.version}</version>
+            </dependency>
+            
+            <dependency>
+                <groupId>org.apache.geronimo.specs</groupId>
+                <artifactId>geronimo-interceptor_1.2_spec</artifactId>
+                <version>${geronimo_interceptor.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.geronimo.specs</groupId>
+                <artifactId>geronimo-atinject_1.0_spec</artifactId>
+                <version>${geronimo_atinject.version}</version>
+            </dependency>
+
+            <!--  this is used for TCK tests        -->
+            <dependency>
+                <groupId>org.apache.openwebbeans</groupId>
+                <artifactId>openwebbeans-impl</artifactId>
+                <version>${openwebbeans.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.openwebbeans</groupId>
+                <artifactId>openwebbeans-el22</artifactId>
+                <version>${openwebbeans.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.openwebbeans</groupId>
+                <artifactId>openwebbeans-porting</artifactId>
+                <version>${openwebbeans.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.openwebbeans</groupId>
+                <artifactId>openwebbeans-web</artifactId>
+                <version>${openwebbeans.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.openwebbeans</groupId>
+                <artifactId>openwebbeans-jsf</artifactId>
+                <version>${openwebbeans.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.openwebbeans</groupId>
+                <artifactId>openwebbeans-spi</artifactId>
+                <version>${openwebbeans.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.openwebbeans</groupId>
+                <artifactId>openwebbeans-resource</artifactId>
+                <version>${openwebbeans.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.openwebbeans</groupId>
+                <artifactId>openwebbeans-ejb</artifactId>
+                <version>${openwebbeans.version}</version>
+            </dependency>
+
+            <!-- CDI Testing Framework -->
+            <dependency>
+                <groupId>org.apache.openwebbeans.test</groupId>
+                <artifactId>cditest</artifactId>
+                <version>${openwebbeans.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.openwebbeans.test</groupId>
+                <artifactId>cditest-owb</artifactId>
+                <version>${openwebbeans.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.openejb</groupId>
+                <artifactId>openejb-core</artifactId>
+                <version>${openejb.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.openejb</groupId>
+                <artifactId>openejb-tomcat-catalina</artifactId>
+                <version>${openejb.version}</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+
+</project>
