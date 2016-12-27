@@ -41,7 +41,7 @@
         <geronimo_atinject.version>1.0</geronimo_atinject.version>
         <geronimo_interceptor.version>1.0</geronimo_interceptor.version>
         <geronimo_validation.version>1.1</geronimo_validation.version>
-        <openwebbeans.version>1.7.1-SNAPSHOT</openwebbeans.version>
+        <openwebbeans.version>1.7.0</openwebbeans.version>
     </properties>
 
     <dependencyManagement>
