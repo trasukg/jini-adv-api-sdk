@@ -1,5 +1,7 @@
 package org.apache.river.container.advapi;
 
+import java.net.URL;
+import java.util.Iterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.enterprise.inject.spi.Bean;
@@ -8,6 +10,8 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import org.apache.webbeans.config.WebBeansContext;
 import org.apache.webbeans.spi.ContainerLifecycle;
+import org.apache.xbean.finder.archive.Archive;
+import org.apache.xbean.finder.archive.JarArchive;
 
 /**
  * Hello world!
@@ -39,6 +43,20 @@ public class Main {
     }
 
     public static void main(String[] args) {
+        
+        try {
+            // Can we create a JarArchive and then see the classes in it?
+            JarArchive archive=new JarArchive(Main.class.getClassLoader(), 
+                    new URL("jar:file:/Users/trasukg/NetBeansProjects/jini-adv-api-sdk/adv-api-hello-home/target/adv-api-hello-home-1.0-SNAPSHOT-bin/lib/adv-api-bootstrap.jar!/META-INF/beans.xml"));
+            Iterator<Archive.Entry> it=archive.iterator();
+            while(it.hasNext()) {
+               System.out.println(it.next().getName());
+            }
+            //System.exit(0);
+        } catch(Throwable t) {
+            t.printStackTrace();
+            System.exit(0);
+        }
         try {
             // Initialize the CDI subsystem.
             boot(null);
